@@ -34,11 +34,8 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore "Universal x86 Tuning Utility.sln"
 
-    - name: Build Solution (AnyCPU Release)
+    - name: Build Solution (Release)
       run: dotnet build "Universal x86 Tuning Utility.sln" --configuration Release --no-restore
-
-    - name: Build Solution (x64 Release)
-      run: dotnet build "Universal x86 Tuning Utility.sln" --configuration Release --no-restore --runtime win-x64
 
     - name: Publish Application (AnyCPU)
       run: dotnet publish "Universal x86 Tuning Utility/Universal x86 Tuning Utility.csproj" --configuration Release --no-build --output ./publish/AnyCPU
