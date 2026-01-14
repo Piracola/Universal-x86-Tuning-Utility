@@ -9,8 +9,6 @@ on:
 
 env:
   DOTNET_VERSION: '8.0.x'
-  SOLUTION_FILE: 'Universal x86 Tuning Utility.sln'
-  PROJECT_FILE: 'Universal x86 Tuning Utility/Universal x86 Tuning Utility.csproj'
 
 jobs:
   build:
@@ -34,19 +32,19 @@ jobs:
           ${{ runner.os }}-nuget-
 
     - name: Restore dependencies
-      run: dotnet restore ${{ env.SOLUTION_FILE }}
+      run: dotnet restore "Universal x86 Tuning Utility.sln"
 
     - name: Build Solution (AnyCPU Release)
-      run: dotnet build ${{ env.SOLUTION_FILE }} --configuration Release --no-restore
+      run: dotnet build "Universal x86 Tuning Utility.sln" --configuration Release --no-restore
 
     - name: Build Solution (x64 Release)
-      run: dotnet build ${{ env.SOLUTION_FILE }} --configuration Release --no-restore --runtime win-x64
+      run: dotnet build "Universal x86 Tuning Utility.sln" --configuration Release --no-restore --runtime win-x64
 
     - name: Publish Application (AnyCPU)
-      run: dotnet publish ${{ env.PROJECT_FILE }} --configuration Release --no-build --output ./publish/AnyCPU
+      run: dotnet publish "Universal x86 Tuning Utility/Universal x86 Tuning Utility.csproj" --configuration Release --no-build --output ./publish/AnyCPU
 
     - name: Publish Application (x64)
-      run: dotnet publish ${{ env.PROJECT_FILE }} --configuration Release --no-build --runtime win-x64 --self-contained false --output ./publish/x64
+      run: dotnet publish "Universal x86 Tuning Utility/Universal x86 Tuning Utility.csproj" --configuration Release --no-build --runtime win-x64 --self-contained false --output ./publish/x64
 
     - name: Create Release Package (AnyCPU)
       run: |
