@@ -40,8 +40,11 @@ jobs:
     - name: Publish Application (AnyCPU)
       run: dotnet publish "Universal x86 Tuning Utility/Universal x86 Tuning Utility.csproj" --configuration Release --no-build --output ./publish/AnyCPU
 
+    - name: Restore dependencies for x64
+      run: dotnet restore "Universal x86 Tuning Utility/Universal x86 Tuning Utility.csproj" --runtime win-x64
+
     - name: Publish Application (x64)
-      run: dotnet publish "Universal x86 Tuning Utility/Universal x86 Tuning Utility.csproj" --configuration Release --no-build --runtime win-x64 --self-contained false --output ./publish/x64
+      run: dotnet publish "Universal x86 Tuning Utility/Universal x86 Tuning Utility.csproj" --configuration Release --runtime win-x64 --self-contained false --output ./publish/x64
 
     - name: Create Release Package (AnyCPU)
       run: |
