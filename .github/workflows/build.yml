@@ -1,0 +1,71 @@
+name: Build
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+env:
+  DOTNET_VERSION: '8.0.x'
+  SOLUTION_FILE: 'Universal x86 Tuning Utility.sln'
+  PROJECT_FILE: 'Universal x86 Tuning Utility/Universal x86 Tuning Utility.csproj'
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: ${{ env.DOTNET_VERSION }}
+
+    - name: Cache NuGet packages
+      uses: actions/cache@v4
+      with:
+        path: ~/.nuget/packages
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
+        restore-keys: |
+          ${{ runner.os }}-nuget-
+
+    - name: Restore dependencies
+      run: dotnet restore ${{ env.SOLUTION_FILE }}
+
+    - name: Build Solution (AnyCPU Release)
+      run: dotnet build ${{ env.SOLUTION_FILE }} --configuration Release --no-restore
+
+    - name: Build Solution (x64 Release)
+      run: dotnet build ${{ env.SOLUTION_FILE }} --configuration Release --no-restore --runtime win-x64
+
+    - name: Publish Application (AnyCPU)
+      run: dotnet publish ${{ env.PROJECT_FILE }} --configuration Release --no-build --output ./publish/AnyCPU
+
+    - name: Publish Application (x64)
+      run: dotnet publish ${{ env.PROJECT_FILE }} --configuration Release --no-build --runtime win-x64 --self-contained false --output ./publish/x64
+
+    - name: Create Release Package (AnyCPU)
+      run: |
+        Compress-Archive -Path ./publish/AnyCPU/* -DestinationPath ./UXTU-AnyCPU-Release.zip
+
+    - name: Create Release Package (x64)
+      run: |
+        Compress-Archive -Path ./publish/x64/* -DestinationPath ./UXTU-x64-Release.zip
+
+    - name: Upload Build Artifacts (AnyCPU)
+      uses: actions/upload-artifact@v4
+      with:
+        name: UXTU-AnyCPU-Release
+        path: ./UXTU-AnyCPU-Release.zip
+        retention-days: 30
+
+    - name: Upload Build Artifacts (x64)
+      uses: actions/upload-artifact@v4
+      with:
+        name: UXTU-x64-Release
+        path: ./UXTU-x64-Release.zip
+        retention-days: 30
