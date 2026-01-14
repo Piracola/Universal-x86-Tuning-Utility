@@ -1,4 +1,4 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.ObjectModel;
@@ -29,7 +29,7 @@ namespace Universal_x86_Tuning_Utility.ViewModels
         private ObservableCollection<MenuItem> _trayMenuItems = new();
 
         [ObservableProperty]
-        private string _downloads = "Downloads: ";
+        private string _downloads = "下载：";
 
         [ObservableProperty]
         private bool _isDownloads = false;
@@ -42,14 +42,14 @@ namespace Universal_x86_Tuning_Utility.ViewModels
 
         private void InitializeViewModel()
         {
-            ApplicationTitle = "Universal x86 Tuning Utility";
+            ApplicationTitle = "通用 x86 调优工具";
             if (Family.TYPE == Family.ProcessorType.Intel)
             {
                 NavigationItems = new ObservableCollection<INavigationControl>
                 {
                 new NavigationItem()
                 {
-                    Content = "Home",
+                    Content = "主页",
                     PageTag = "dashboard",
                     Icon = SymbolRegular.Home20,
                     PageType = typeof(Views.Pages.DashboardPage)
@@ -63,28 +63,28 @@ namespace Universal_x86_Tuning_Utility.ViewModels
                 //},
                 new NavigationItem()
                 {
-                    Content = "Custom",
+                    Content = "自定义",
                     PageTag = "custom",
                     Icon = SymbolRegular.Book20,
                     PageType = typeof(Views.Pages.CustomPresets)
                 },
                 new NavigationItem()
                 {
-                    Content = "Adaptive",
+                    Content = "自适应",
                     PageTag = "adaptive",
                     Icon = SymbolRegular.Radar20,
                     PageType = typeof(Views.Pages.Adaptive)
                 },
                 new NavigationItem()
                 {
-                    Content = "Games",
+                    Content = "游戏",
                     PageTag = "games",
                     Icon = SymbolRegular.Games20,
                     PageType = typeof(Views.Pages.Games)
                 },
                 new NavigationItem()
                 {
-                    Content = "Auto",
+                    Content = "自动化",
                     PageTag = "auto",
                     Icon = SymbolRegular.Transmission20,
                     PageType = typeof(Views.Pages.Automations)
@@ -105,7 +105,7 @@ namespace Universal_x86_Tuning_Utility.ViewModels
                 //},
                 new NavigationItem()
                 {
-                    Content = "Info",
+                    Content = "信息",
                     PageTag = "info",
                     Icon = SymbolRegular.Info20,
                     PageType = typeof(Views.Pages.SystemInfo)
@@ -116,7 +116,7 @@ namespace Universal_x86_Tuning_Utility.ViewModels
             {
                 new NavigationItem()
                 {
-                    Content = "Settings",
+                    Content = "设置",
                     PageTag = "settings",
                     Icon = SymbolRegular.Settings20,
                     PageType = typeof(Views.Pages.SettingsPage)
@@ -127,7 +127,7 @@ namespace Universal_x86_Tuning_Utility.ViewModels
             {
                 new MenuItem
                 {
-                    Header = "Home",
+                    Header = "主页",
                     Tag = "tray_home"
                 }
             };
@@ -138,42 +138,42 @@ namespace Universal_x86_Tuning_Utility.ViewModels
                 {
                 new NavigationItem()
                 {
-                    Content = "Home",
+                    Content = "主页",
                     PageTag = "dashboard",
                     Icon = SymbolRegular.Home20,
                     PageType = typeof(Views.Pages.DashboardPage)
                 },
                 new NavigationItem()
                 {
-                    Content = "Premade",
+                    Content = "预设",
                     PageTag = "premade",
                     Icon = SymbolRegular.Predictions20,
                     PageType = typeof(Views.Pages.Premade)
                 },
                 new NavigationItem()
                 {
-                    Content = "Custom",
+                    Content = "自定义",
                     PageTag = "custom",
                     Icon = SymbolRegular.Book20,
                     PageType = typeof(Views.Pages.CustomPresets)
                 },
                 new NavigationItem()
                 {
-                    Content = "Adaptive",
+                    Content = "自适应",
                     PageTag = "adaptive",
                     Icon = SymbolRegular.Radar20,
                     PageType = typeof(Views.Pages.Adaptive)
                 },
                 new NavigationItem()
                 {
-                    Content = "Games",
+                    Content = "游戏",
                     PageTag = "games",
                     Icon = SymbolRegular.Games20,
                     PageType = typeof(Views.Pages.Games)
                 },
                 new NavigationItem()
                 {
-                    Content = "Auto",
+                    Content = "自动化",
                     PageTag = "auto",
                     Icon = SymbolRegular.Transmission20,
                     PageType = typeof(Views.Pages.Automations)
@@ -194,7 +194,7 @@ namespace Universal_x86_Tuning_Utility.ViewModels
                 //},
                 new NavigationItem()
                 {
-                    Content = "Info",
+                    Content = "信息",
                     PageTag = "info",
                     Icon = SymbolRegular.Info20,
                     PageType = typeof(Views.Pages.SystemInfo)
@@ -205,7 +205,7 @@ namespace Universal_x86_Tuning_Utility.ViewModels
             {
                 new NavigationItem()
                 {
-                    Content = "Settings",
+                    Content = "设置",
                     PageTag = "settings",
                     Icon = SymbolRegular.Settings20,
                     PageType = typeof(Views.Pages.SettingsPage)
@@ -216,7 +216,7 @@ namespace Universal_x86_Tuning_Utility.ViewModels
             {
                 new MenuItem
                 {
-                    Header = "Home",
+                    Header = "主页",
                     Tag = "tray_home"
                 }
             };

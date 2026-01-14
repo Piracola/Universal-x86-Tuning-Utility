@@ -1,4 +1,4 @@
-﻿<Page x:Class="Universal_x86_Tuning_Utility.Views.Pages.SystemInfo"
+<Page x:Class="Universal_x86_Tuning_Utility.Views.Pages.SystemInfo"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -70,7 +70,7 @@
                                     <TextBlock
                             FontSize="14"
                             FontWeight="Medium"
-                            Text="Processor Information" />
+                            Text="处理器信息" />
                                    
                                 </StackPanel>
                             </Grid>
@@ -121,7 +121,7 @@
                                     <TextBlock
                             FontSize="14"
                             FontWeight="Medium"
-                            Text="Memory Information" />
+                            Text="内存信息" />
 
                                 </StackPanel>
                             </Grid>
@@ -145,7 +145,7 @@
                                 </StackPanel>
                             </StackPanel>
                             <StackPanel Name="spRAMTime" Margin="24,8,12,0">
-                            <TextBlock  FontWeight="DemiBold">RAM Timings:</TextBlock>
+                            <TextBlock  FontWeight="DemiBold">内存时序:</TextBlock>
                                 <Grid Margin="-5,8,0,0">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="2*" />
@@ -393,7 +393,7 @@
                                     <TextBlock
                             FontSize="14"
                             FontWeight="Medium"
-                            Text="Battery Information"  />
+                            Text="电池信息"  />
 
                                 </StackPanel>
                             </Grid>

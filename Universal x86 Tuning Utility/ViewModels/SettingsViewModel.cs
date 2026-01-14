@@ -1,4 +1,4 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Windows.Input;
@@ -29,7 +29,7 @@ namespace Universal_x86_Tuning_Utility.ViewModels
         private void InitializeViewModel()
         {
             CurrentTheme = Wpf.Ui.Appearance.Theme.GetAppTheme();
-            AppVersion = $"Universal x86 Tuning Utility - {GetAssemblyVersion()}";
+            AppVersion = $"通用 x86 调优工具 - {GetAssemblyVersion()}";
 
             _isInitialized = true;
         }
